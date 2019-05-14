@@ -43,11 +43,29 @@ class BinarySearchTree {
     }
   }
    
-lookup(value){
-
+// 1ST: In look up the node - if Node does not exist - return false
+  // 2: We set the  condition - depends on the value passed in we will 
+  // direct the node to go left or go right - if the value mathches 
+  // the node that we already have - it will displat the node along 
+  // With the left and right node
+  lookup(value){
+    if(!this.root){
+      return false
+    }
+    let currentNode = this.root;
+    while(currentNode) {
+      if (value < currentNode.value){
+        return currentNode = currentNode.left;
+      } else if (value > currentNode.value ){
+        return currentNode = currentNode.right
+      } else if (currentNode.value === value){
+        return currentNode
+      }
+    }
+    return false
   }
-
-} 
+  // remove
+}
 
 const tree = new BinarySearchTree();
 tree.insert(9)
