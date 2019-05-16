@@ -32,8 +32,9 @@ const reverse4 = input => [...input].reverse().join('')
 
 
 // We could even use recursive in this instance but I would be really careful in term of 
-// performance as we don't really know how long the input will be
-// If the input is long we are better off using the built in function of ES6
+// performance as we don't really know how long the input will be also the operation is 0(2n) hence it will 
+// be expensive ff the input is long we are better off using the built in function of ES6 where we can 
+// achieve 0(n) like the example above
 
 function recursive (input){
     debugger;
