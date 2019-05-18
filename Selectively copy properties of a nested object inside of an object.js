@@ -1,5 +1,5 @@
-// In this exercise, what if we want to selectively select property of and object 
-// nested inside of an object 
+// In this exercise, what if we want to selectively select property of an object nested inside of an object
+// NOTE: not just copy all properties of the nested object but conditionally choose whic properties we want.
 
 let learners = {
     firstName: "Steven",
