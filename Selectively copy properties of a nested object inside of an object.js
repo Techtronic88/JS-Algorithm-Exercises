@@ -49,25 +49,42 @@ console.log(newObject);
 // Today I discovered another way to manipulate data inside of an Object using Call back pattern.
 // We use call back pattern all the time with AddEventListener - Manipulate data in array with built in ES6 functions like map - reduce etc...
 
-const pullScore2 = function(object, section = 0, callback ) {
-    let scores = {};
-    for (let key in object.scores) {
-        if (key.includes('s' + section)){
-            let value = obj.scores[key]; // the next if statement just to make sure we have function validation.
-            if (typeof callback === "function "){
-                value = callback(value);
-            }
-            scores[key] = value
-        }
+function objectManipulate(object, section = 0, callback) {
+    let scores = {}
+    for(key in object.scores){
+      if (key.includes('s' + section)){
+        let value = object.scores[key]
+          if (typeof callback === "function"){
+              value = callback(value)
+          }
+            scores[key] = value 
+       }
     }
-     return scores
-     
+    return scores
 }
 
-
-// What we have done above is validating callback function as argument in the pullScore2 function
+// What we have done above is validating callback function as argument in the objectManipulate function
 // The value we get back from property pulled from the original object is now passed in the call function()
-// Below we will demonstrate how we can manipulate data we pulled old object with our call back function attached.
+// Below we will demonstrate how we can manipulate data we pulled from old object with our call back function attached.
+// Note the data we pulled was an object nested indie of an object
+// I find this concept quite fascinating.
 
-
+let newObject2 = objectManipulate(learners, 1, function(val){
+    if(val === null){
+      return "Data not available"
+    } else {
+      let newValue = val.split(":");
+      return newValue[0] / newValue[1] * 100 + " percent"
+    }
+  })
+  
+  console.log(newObject2)
+  // RESULT
+  // newObject now data pulled from original Object's nested object 
+  // with data edited and conditioned we gave it
+   // { s1q1: '62.5 percent',
+   // s1q2: '90 percent',
+   // s1q3: 'Data not available',
+   // s1q4: '20 percent',
+   // s1q5: '80 percent' }
 
