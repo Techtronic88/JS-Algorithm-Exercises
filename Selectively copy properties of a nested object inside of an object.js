@@ -53,11 +53,11 @@ const pullScore2 = function(object, section = 0, callback ) {
     let scores = {};
     for (let key in object.scores) {
         if (key.includes('s' + section)){
-            let value = obj.scores[key];
+            let value = obj.scores[key]; // the next if statement just to make sure we have function validation.
             if (typeof callback === "function "){
-                val = callback(val);
+                value = callback(value);
             }
-            scores[key] = val
+            scores[key] = value
         }
     }
      return scores
